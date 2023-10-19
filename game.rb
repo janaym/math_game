@@ -2,38 +2,49 @@ require './question.rb'
 
 class Game
   attr_accessor :current_player
+  attr_reader :question, :player2, :player1
+  attr
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
     @current_player = player1
+    
+    @response = ""
+    @answer = ""
   end
 
-  # start a turn
-
-  def turn
-    puts "---- NEW TURN ----"
-
+  def ask_question
     question = Question.new
+    @answer = question.answer
     puts "#{@current_player.name}: #{question.statement}"
+  end
 
-    player_answer = gets.chomp
+  def receive_response
+    @response = gets.chomp.to_i
+  end
 
-    if player_answer.to_i == question.answer
-      puts 'YES! You are correct'
+  def check_response
+    if @response == @answer
+      puts "YES! you are correct."
     else
-      current_player.lives -= 1
-      puts 'Seriously? No!'
+      puts "Seriously? No!"
+      @player1.lives -= 1
+    end
+  end
+
+  def display_score
+    puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
+  end
+
+  def switch_player
+    if @current_player.name == @player1.name
+      @current_player = @player2
+    else 
+      @current_player = @player1
     end
 
-    puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
-
   end
-
-
-
-
-
-    
+   
     
 end

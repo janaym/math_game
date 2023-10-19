@@ -7,7 +7,6 @@ class Question
     b = rand(1...20)
     @statement = "What is #{a} plus #{b} equal?"
     @answer = a + b
-    puts @statement, @answer
   end
 
 
