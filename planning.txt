@@ -1,0 +1,31 @@
+class nouns: 
+  - questions
+  - players
+  - game
+
+class roles:
+  - questions: 
+    - present a player with a math addition problem 
+    - uses two numbers between 1 and 20
+    - contains a correct answer
+  
+  - players:
+    - keeps track of each player's info
+    - keeps track o f player's lives
+
+
+class methods:
+
+  - question:
+    - initialize(needs nothing, will use math.random)
+    - statement
+    - answer
+
+  - player:
+    - initalize(name)
+    - lives
+
+  - game:
+    - initialize(player1, player2)
+    - ask_question (user I/O)
+    - current_player
