@@ -22,9 +22,11 @@ class Game
     if player_answer.to_i == question.answer
       puts 'YES! You are correct'
     else
+      current_player.lives -= 1
       puts 'Seriously? No!'
     end
 
+    puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
 
   end
 
